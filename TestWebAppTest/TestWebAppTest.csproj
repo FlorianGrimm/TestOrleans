@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="6.0.2" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+		<PackageReference Include="xunit" Version="2.4.1" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="coverlet.collector" Version="3.1.0">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.2" NoWarn="NU1605" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="6.0.2" NoWarn="NU1605" />
+		<PackageReference Include="Microsoft.Identity.Web" Version="1.23.0" />
+		<PackageReference Include="Microsoft.Identity.Web.UI" Version="1.23.0" />
+		<PackageReference Include="Microsoft.Orleans.Persistence.AdoNet" Version="4.0.0-preview1" />
+		<PackageReference Include="Microsoft.Orleans.Persistence.Memory" Version="4.0.0-preview1" />
+		<PackageReference Include="Microsoft.Orleans.Server" Version="4.0.0-preview1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\TestGrainInterfaces\TestGrainInterfaces.csproj" />
+		<ProjectReference Include="..\TestGrains\TestGrains.csproj" />
+		<ProjectReference Include="..\TestWebApp\TestWebApp.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="MvcTestingAppManifest.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\" />
+	  <Folder Include="Pages\" />
+	</ItemGroup>
+</Project>
