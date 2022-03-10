@@ -1,4 +1,5 @@
 ﻿
+
 namespace TestWebAppTest;
 
 public class TestStartup : StartupImplementation {
@@ -23,12 +24,12 @@ public class TestStartup : StartupImplementation {
             });
     }
 
-    public override void ConfigureServices(IServiceCollection services, IConfiguration configuration, IWebHostEnvironment webHostEnvironment) {
-        //services.AddRazorPages().ConfigureApplicationPartManager(apm => {
-        //    apm.ApplicationParts.Add(new Microsoft.AspNetCore.Mvc.ApplicationParts.AssemblyPart(typeof(Program).Assembly));
-        //});
-        base.ConfigureServices(services, configuration, webHostEnvironment);
-    }
+    //public override void ConfigureServices(IServiceCollection services, IConfiguration configuration, IWebHostEnvironment webHostEnvironment) {
+    //    //services.AddRazorPages().ConfigureApplicationPartManager(apm => {
+    //    //    apm.ApplicationParts.Add(new Microsoft.AspNetCore.Mvc.ApplicationParts.AssemblyPart(typeof(Program).Assembly));
+    //    //});
+    //    base.ConfigureServices(services, configuration, webHostEnvironment);
+    //}
 
     public override bool ConfigureServicesForAuthentication(IServiceCollection services) {
         services.UseMockAuthentication(options => {
@@ -36,9 +37,9 @@ public class TestStartup : StartupImplementation {
         return false;
     }
 
-    public override void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
-        base.Configure(app, env);
-    }
+    //public override void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+    //    base.Configure(app, env);
+    //}
 }
 /*
  https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel/endpoints?view=aspnetcore-6.0

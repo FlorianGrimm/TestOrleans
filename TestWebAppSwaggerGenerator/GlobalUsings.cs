@@ -7,11 +7,14 @@ global using global::System.Net.Http;
 global using global::System.Net.Http.Json;
 global using global::System.Threading;
 global using global::System.Threading.Tasks;
+global using global::System.Security.Claims;
+global using global::System.Text.Encodings.Web;
 
 global using global::Microsoft.Extensions.Configuration;
 global using global::Microsoft.Extensions.DependencyInjection;
 global using global::Microsoft.Extensions.Hosting;
 global using global::Microsoft.Extensions.Logging;
+global using global::Microsoft.Extensions.Options;
 
 global using global::Microsoft.AspNetCore.Builder;
 global using global::Microsoft.AspNetCore.Hosting;
@@ -25,7 +28,6 @@ global using global::Microsoft.AspNetCore.Authorization;
 global using global::Microsoft.AspNetCore.HttpsPolicy;
 global using global::Microsoft.AspNetCore.Mvc;
 global using global::Microsoft.AspNetCore.Mvc.Authorization;
-global using global::Microsoft.AspNetCore.Mvc.ApplicationParts;
 global using global::Microsoft.AspNetCore.Mvc.RazorPages;
 global using global::Microsoft.Identity.Web;
 global using global::Microsoft.Identity.Web.UI;

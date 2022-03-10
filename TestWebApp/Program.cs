@@ -26,3 +26,9 @@ public class Program {
             });
     }
 }
+/*
+ https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/kestrel/endpoints?view=aspnetcore-6.0
+https://devblogs.microsoft.com/dotnet/configuring-https-in-asp-net-core-across-different-platforms/
+https://github.com/domaindrivendev/Swashbuckle.AspNetCore
+https://andrewlock.net/exploring-dotnet-6-part-5-supporting-ef-core-tools-with-webapplicationbuilder/
+ */

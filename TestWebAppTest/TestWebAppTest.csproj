@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
@@ -33,6 +33,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\TestGrainInterfaces\TestGrainInterfaces.csproj" />
 		<ProjectReference Include="..\TestGrains\TestGrains.csproj" />
+		<ProjectReference Include="..\TestLogic\TestLogic.csproj" />
 		<ProjectReference Include="..\TestWebApp\TestWebApp.csproj" />
 	</ItemGroup>
 

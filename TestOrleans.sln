@@ -3,19 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWebApp", "TestWebApp\TestWebApp.csproj", "{858A64F6-0A4A-4965-8C7D-DE3FC7DBBAF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWebApp", "TestWebApp\TestWebApp.csproj", "{858A64F6-0A4A-4965-8C7D-DE3FC7DBBAF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestGrainInterfaces", "TestGrainInterfaces\TestGrainInterfaces.csproj", "{9CDEA7B5-1EC2-469A-B48F-823EC509B965}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestGrainInterfaces", "TestGrainInterfaces\TestGrainInterfaces.csproj", "{9CDEA7B5-1EC2-469A-B48F-823EC509B965}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestGrains", "TestGrains\TestGrains.csproj", "{0CD25008-BFB8-4A84-964D-91AA6BE8337F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestGrains", "TestGrains\TestGrains.csproj", "{0CD25008-BFB8-4A84-964D-91AA6BE8337F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClient", "TestClient\TestClient.csproj", "{3339A9FA-9EA1-4CE9-869E-40E3C3375F52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestClient", "TestClient\TestClient.csproj", "{3339A9FA-9EA1-4CE9-869E-40E3C3375F52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWebAppTest", "TestWebAppTest\TestWebAppTest.csproj", "{70B7D943-E67B-4933-85B9-B129D448BEB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWebAppTest", "TestWebAppTest\TestWebAppTest.csproj", "{70B7D943-E67B-4933-85B9-B129D448BEB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestGrainsTest", "TestGrainsTest\TestGrainsTest.csproj", "{19B88B88-F77B-4C19-81BA-77035DFDB73B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestGrainsTest", "TestGrainsTest\TestGrainsTest.csproj", "{19B88B88-F77B-4C19-81BA-77035DFDB73B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwashBuckle.AspNetCore.MicrosoftExtensions", "SwashBuckle.AspNetCore.MicrosoftExtensions\SwashBuckle.AspNetCore.MicrosoftExtensions.csproj", "{42166B8C-F577-46C2-9940-735AE3D5A3B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwashBuckle.AspNetCore.MicrosoftExtensions", "SwashBuckle.AspNetCore.MicrosoftExtensions\SwashBuckle.AspNetCore.MicrosoftExtensions.csproj", "{42166B8C-F577-46C2-9940-735AE3D5A3B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLogic", "TestLogic\TestLogic.csproj", "{D9A59B61-A0BA-403C-8E6D-C954D04754C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWebAppSwaggerGenerator", "TestWebAppSwaggerGenerator\TestWebAppSwaggerGenerator.csproj", "{A6B56F1A-251E-4C6B-B6D9-5A7DD015F232}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{42166B8C-F577-46C2-9940-735AE3D5A3B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42166B8C-F577-46C2-9940-735AE3D5A3B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42166B8C-F577-46C2-9940-735AE3D5A3B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9A59B61-A0BA-403C-8E6D-C954D04754C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9A59B61-A0BA-403C-8E6D-C954D04754C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9A59B61-A0BA-403C-8E6D-C954D04754C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9A59B61-A0BA-403C-8E6D-C954D04754C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6B56F1A-251E-4C6B-B6D9-5A7DD015F232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6B56F1A-251E-4C6B-B6D9-5A7DD015F232}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6B56F1A-251E-4C6B-B6D9-5A7DD015F232}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6B56F1A-251E-4C6B-B6D9-5A7DD015F232}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

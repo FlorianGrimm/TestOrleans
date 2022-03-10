@@ -5,7 +5,7 @@ public struct Result<T> {
     private readonly T? _Value;
     private readonly string? _Message;
 
-    public Result([NotNull]T value) {
+    public Result(T value) {
         this._Mode = 0;
         this._Value = value;
         this._Message = default;

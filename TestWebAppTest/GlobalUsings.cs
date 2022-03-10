@@ -26,6 +26,7 @@ global using global::Microsoft.AspNetCore.Authentication.OpenIdConnect;
 global using global::Microsoft.AspNetCore.Authorization;
 global using global::Microsoft.AspNetCore.HttpsPolicy;
 global using global::Microsoft.AspNetCore.Mvc;
+global using global::Microsoft.AspNetCore.Mvc.ApplicationParts;
 global using global::Microsoft.AspNetCore.Mvc.Authorization;
 global using global::Microsoft.AspNetCore.Mvc.Testing;
 
@@ -40,6 +41,8 @@ global using global::Orleans.Hosting;
 global using global::TestGrainInterfaces;
 global using global::TestGrains;
 global using global::TestWebApp;
+global using global::TestLogic;
+global using global::TestLogic.Controllers;
 
 global using global::Xunit;
 

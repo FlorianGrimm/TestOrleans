@@ -1,4 +1,4 @@
-namespace TestWebApp;
+namespace TestWebAppSwaggerGenerator;
 
 public class Startup {
     public static StartupImplementation? TesterInjection;
@@ -11,7 +11,7 @@ public class Startup {
         ) {
         Configuration = configuration;
         this.WebHostEnvironment = webHostEnvironment;
-        this._Implementation = TesterInjection ?? new StartupImplementation();
+        this._Implementation = TesterInjection ?? new StartupSwaggerGeneratorImplementation();
     }
 
     public IConfiguration Configuration { get; }
@@ -25,5 +25,11 @@ public class Startup {
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
         this._Implementation.Configure(app, env);
+    }
+}
+public class StartupSwaggerGeneratorImplementation : StartupImplementation {
+    public override bool ConfigureServicesForAuthentication(IServiceCollection services) {
+        services.UseSillyAuthentication(options => { });
+        return false;
     }
 }
