@@ -21,13 +21,13 @@ namespace SwashBuckle.AspNetCore.MicrosoftExtensions.Attributes
         /// <summary>
         /// User facing value path, these values will show up for user to choose.
         /// </summary>
-        public string ValueTitle { get; }
+        public string? ValueTitle { get; }
 
         /// <summary>
         /// Parameter value to pass to capability
         /// (e.g., capabilityOpParam={paramNameFromThisOperation}&amp;capabilityOpParam2=hardcoded)
         /// </summary>
-        public string Parameters { get; }
+        public string? Parameters { get; }
 
         /// <param name="capability">
         /// Capability name, uses operations within capability to get value.
@@ -42,7 +42,7 @@ namespace SwashBuckle.AspNetCore.MicrosoftExtensions.Attributes
         /// Parameter value to pass to capability
         /// (e.g., capabilityOpParam={paramNameFromThisOperation}&amp;capabilityOpParam2=hardcoded)
         /// </param>
-        public DynamicValueLookupCapabilityAttribute (string capability, string valuePath, string valueTitle = null, string parameters = null)
+        public DynamicValueLookupCapabilityAttribute (string capability, string valuePath, string? valueTitle = null, string? parameters = null)
         {
             Capability = capability;
             ValuePath = valuePath;

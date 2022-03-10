@@ -1,34 +1,27 @@
-﻿using System.Collections.Generic;
-using System.Reflection;
-using Newtonsoft.Json.Serialization;
-using Swashbuckle.AspNetCore.Swagger;
-using Swashbuckle.AspNetCore.SwaggerGen;
-using SwashBuckle.AspNetCore.MicrosoftExtensions.Attributes;
-using SwashBuckle.AspNetCore.MicrosoftExtensions.Extensions;
+﻿namespace SwashBuckle.AspNetCore.MicrosoftExtensions.Filters; 
 
-namespace SwashBuckle.AspNetCore.MicrosoftExtensions.Filters
+internal class SchemaFilter : ISchemaFilter
 {
-    internal class SchemaFilter : ISchemaFilter
+    public void Apply(OpenApiSchema model, SchemaFilterContext context)
     {
-        public void Apply(Schema model, SchemaFilterContext context)
+        if(model is null || context is null)
         {
-            if(model is null || context is null)
-            {
-                return;
-            }
-
-            model.Extensions.AddRange(GetClassExtensions(context));
-
-            if(context.JsonContract is JsonObjectContract objectContract)
-            {
-                model.Properties.ExtendProperties(objectContract.Properties);
-            }
+            return;
         }
 
-        private IEnumerable<KeyValuePair<string, object>> GetClassExtensions(SchemaFilterContext context)
-        {
-            var attribute = context.SystemType.GetTypeInfo().GetCustomAttribute<DynamicSchemaLookupAttribute>();
-            return attribute.GetSwaggerExtensions();
-        }
+        model.Extensions.AddRange(GetClassExtensions(context));
+
+#warning TODO
+        //if(context.JsonContract is JsonObjectContract objectContract)
+        //{
+        //    model.Properties.ExtendProperties(objectContract.Properties);
+        //}
+    }
+
+    private IEnumerable<KeyValuePair<string, IOpenApiExtension>> GetClassExtensions(SchemaFilterContext context)
+    {
+        //var attribute = context.SystemType.GetTypeInfo().GetCustomAttribute<DynamicSchemaLookupAttribute>();
+        var attribute = context.Type.GetTypeInfo().GetCustomAttribute<DynamicSchemaLookupAttribute>();
+        return attribute?.GetSwaggerExtensions() ?? Array.Empty<KeyValuePair<string, IOpenApiExtension>>();
     }
 }

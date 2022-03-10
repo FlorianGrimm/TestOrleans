@@ -1,32 +1,24 @@
-﻿using System.Collections.Generic;
-using SwashBuckle.AspNetCore.MicrosoftExtensions.Attributes;
-using SwashBuckle.AspNetCore.MicrosoftExtensions.Helpers;
-using SwashBuckle.AspNetCore.MicrosoftExtensions.VendorExtensionEntities;
+﻿namespace SwashBuckle.AspNetCore.MicrosoftExtensions.Extensions;
 
-namespace SwashBuckle.AspNetCore.MicrosoftExtensions.Extensions
+internal static class DynamicValueLookupAttributeExtensions
 {
-    internal static class DynamicValueLookupAttributeExtensions
+    internal static IEnumerable<KeyValuePair<string, IOpenApiExtension>> GetSwaggerExtensions (this DynamicValueLookupAttribute attribute)
     {
-        internal static IEnumerable<KeyValuePair<string, object>> GetSwaggerExtensions (this DynamicValueLookupAttribute attribute)
-        {
-            if(attribute is null)
-                yield break;
+        if(attribute is null)
+            yield break;
 
-            yield return new KeyValuePair<string, object>
+        yield return new KeyValuePair<string, IOpenApiExtension>
+        (
+            Constants.XMsDynamicValueLookup,
+            new DynamicValuesModel
             (
-                Constants.XMsDynamicValueLookup,
-                new DynamicValuesModel
-                (
-                    attribute.LookupOperation,
-                    attribute.ValuePath,
-                    attribute.ValueTitle,
-                    attribute.ValueCollection,
-                    ParameterParser.Parse(attribute.Parameters)
-                )
-            );
-
-        }
-
+                attribute.LookupOperation,
+                attribute.ValuePath,
+                attribute.ValueTitle,
+                attribute.ValueCollection,
+                ParameterParser.Parse(attribute.Parameters)
+            )
+        );
 
     }
 }

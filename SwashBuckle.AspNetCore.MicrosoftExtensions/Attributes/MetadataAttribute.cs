@@ -11,12 +11,12 @@ namespace SwashBuckle.AspNetCore.MicrosoftExtensions.Attributes
         /// <summary>
         /// Display name
         /// </summary>
-        public string Summary { get; }
+        public string? Summary { get; }
 
         /// <summary>
         /// Description
         /// </summary>
-        public string Description { get; }
+        public string? Description { get; }
 
         /// <summary>
         /// Visibility option for ms flow/logic app designer
@@ -28,8 +28,8 @@ namespace SwashBuckle.AspNetCore.MicrosoftExtensions.Attributes
         /// <param name="visibility">Visibility option for ms flow/logic app designer</param>
         public MetadataAttribute
         (
-            string summary = null,
-            string description = null,
+            string? summary = null,
+            string? description = null,
             VisibilityType visibility = VisibilityType.Default
         )
         {
