@@ -3,24 +3,40 @@ using Microsoft.OpenApi.Models;
 namespace TestWebApp;
 
 public class Startup {
+    public static StartupImplementation? TesterInjection;
+
+    private readonly StartupImplementation _Implementation;
 
     public Startup(
-        IConfiguration configuration, 
+        IConfiguration configuration,
         Microsoft.AspNetCore.Hosting.IWebHostEnvironment webHostEnvironment
         ) {
         Configuration = configuration;
         this.WebHostEnvironment = webHostEnvironment;
+        this._Implementation = TesterInjection ?? new StartupImplementation();
     }
 
     public IConfiguration Configuration { get; }
 
     public IWebHostEnvironment WebHostEnvironment { get; }
 
-    // This method gets called by the runtime. Use this method to add services to the container.
-    public virtual void ConfigureServices(IServiceCollection services) {
+
+    public void ConfigureServices(IServiceCollection services) {
+        this._Implementation.ConfigureServices(services, this.Configuration, this.WebHostEnvironment);
+    }
+
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+        this._Implementation.Configure(app, env);
+    }
+}
+public class StartupImplementation {
+    public virtual void ConfigureServices(
+        IServiceCollection services,
+        IConfiguration configuration,
+        IWebHostEnvironment webHostEnvironment) {
         if (this.ConfigureServicesForAuthentication(services)) {
             services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-            .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"));
+            .AddMicrosoftIdentityWebApp(configuration.GetSection("AzureAd"));
         }
 
         services.AddAuthorization(options => {
@@ -38,11 +54,10 @@ public class Startup {
             c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
         });
     }
-
     public virtual bool ConfigureServicesForAuthentication(IServiceCollection services) => true;
 
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public virtual void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+
         if (env.IsDevelopment()) {
             app.UseDeveloperExceptionPage();
         } else {

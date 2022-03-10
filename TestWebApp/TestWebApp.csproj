@@ -3,6 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>disable</ImplicitUsings>
+		<Nullable>enable</Nullable>
 		<UserSecretsId>aspnet-TestWebApp-2374BE56-8193-4EE7-9CC4-D8241428DF3B</UserSecretsId>
 	</PropertyGroup>
 

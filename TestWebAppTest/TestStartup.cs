@@ -1,10 +1,11 @@
 ﻿
 namespace TestWebAppTest;
 
-public class TestStartup : Startup {
+public class TestStartup : StartupImplementation {
     public static IHostBuilder CreateHostBuilderForTesting(string[] args) {
-        string p = typeof(TestStartup).Assembly.Location;
+        Startup.TesterInjection = new TestStartup();
         return Host.CreateDefaultBuilder(args)
+            .UseEnvironment("Testing")
             .UseOrleans(builder => {
                 builder.UseLocalhostClustering();
                 builder.AddMemoryGrainStorageAsDefault();
@@ -17,38 +18,26 @@ public class TestStartup : Startup {
             .ConfigureHostOptions(options => { 
                 //options.Properties
             })
-            //.ConfigureWebHost(webBuilder => {
-            //    //webBuilder.UseContentRoot(@"C:\temp\TestWebApp\TestWebApp");
-            //    //webBuilder.UseWebRoot(@"C:\temp\TestWebApp\TestWebApp\wwwroot");
-            //    webBuilder.UseStartup<TestStartup>();
-            //})
             .ConfigureWebHostDefaults(webBuilder => {
-                //webBuilder.UseContentRoot(@"C:\temp\TestWebApp\TestWebApp");
-                webBuilder.UseWebRoot(@"C:\temp\TestWebApp\TestWebApp\wwwroot");
-                webBuilder.UseStartup<TestStartup>();
+                webBuilder.UseStartup<Startup>();
             });
     }
 
-    public TestStartup(
-        IConfiguration configuration,
-        Microsoft.AspNetCore.Hosting.IWebHostEnvironment webHostEnvironment
-        ) : base(configuration, webHostEnvironment) {
-        //webHostEnvironment.ContentRootPath = @"C:\temp\TestWebApp\TestWebApp";
-        //webHostEnvironment.WebRootPath = @"C:\temp\TestWebApp\TestWebApp\wwwroot";
-
-    }
-
-    public override void ConfigureServices(IServiceCollection services) {
-        services.AddRazorPages().ConfigureApplicationPartManager(apm => {
-            apm.ApplicationParts.Add(new Microsoft.AspNetCore.Mvc.ApplicationParts.AssemblyPart(typeof(Program).Assembly));
-        });
-        base.ConfigureServices(services);
+    public override void ConfigureServices(IServiceCollection services, IConfiguration configuration, IWebHostEnvironment webHostEnvironment) {
+        //services.AddRazorPages().ConfigureApplicationPartManager(apm => {
+        //    apm.ApplicationParts.Add(new Microsoft.AspNetCore.Mvc.ApplicationParts.AssemblyPart(typeof(Program).Assembly));
+        //});
+        base.ConfigureServices(services, configuration, webHostEnvironment);
     }
 
     public override bool ConfigureServicesForAuthentication(IServiceCollection services) {
         services.UseMockAuthentication(options => {
         });
         return false;
+    }
+
+    public override void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+        base.Configure(app, env);
     }
 }
 /*
